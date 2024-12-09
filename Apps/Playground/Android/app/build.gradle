@@ -91,6 +91,7 @@ tasks.configureEach { task ->
 preBuild.dependsOn ':BabylonNative:assembleRelease'
 
 task copyFiles {
+    /*
     copy
     {
         from '../../../node_modules/babylonjs'
@@ -127,6 +128,7 @@ task copyFiles {
         include "*.js"
         into 'src/main/assets/Scripts'
     }
+    */
 }
 
 preBuild.dependsOn(copyFiles)

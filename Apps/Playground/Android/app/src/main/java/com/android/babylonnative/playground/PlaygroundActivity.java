@@ -2,7 +2,9 @@ package com.android.babylonnative.playground;
 
 import android.Manifest;
 import android.app.Activity;
+import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -19,6 +21,8 @@ public class PlaygroundActivity extends Activity implements BabylonView.ViewDele
         super.onCreate(icicle);
         mView = new BabylonView(getApplication(), this);
         setContentView(mView);
+
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
     }
 
     @Override
@@ -44,6 +48,12 @@ public class PlaygroundActivity extends Activity implements BabylonView.ViewDele
         if (hasFocus && mView.getVisibility() == View.GONE) {
             mView.setVisibility(View.VISIBLE);
         }
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        // TODO:
     }
 
     @Override
